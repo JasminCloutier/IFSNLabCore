@@ -1,0 +1,17 @@
+# You can learn more about package authoring with RStudio at:
+#
+#   http://r-pkgs.had.co.nz/
+#
+# Some useful keyboard shortcuts for package authoring:
+#
+#   Install Package:           'Cmd + Shift + B'
+#   Check Package:             'Cmd + Shift + E'
+#   Test Package:              'Cmd + Shift + T'
+
+# %notin% selects elements not in a specified vector
+
+if (!require("tidyverse")) {install.packages("tidyverse")}
+library(tidyverse)
+
+`%notin%` = Negate(`%in%`)
+

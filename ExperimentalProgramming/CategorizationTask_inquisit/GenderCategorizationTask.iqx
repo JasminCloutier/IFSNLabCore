@@ -1,0 +1,751 @@
+﻿--------------------------------------------------------------------------------------
+*** DEFAULTS *****
+---------------------------------------------------------------------------------------			
+<defaults>
+/screencolor=black
+/txbgcolor=black
+/txcolor=white
+/fontstyle=("Arial", 5%)
+</defaults>
+
+<data>
+/columns=(date, time, group, subject, session, values.genderSide, blockcode, blocknum, trialcode, trialnum, pretrialpause, posttrialpause, response, correct, latency, stimulusnumber, stimulusitem, stimulusonset, 
+stimulusnumber, stimulusitem, stimulusonset, stimulusnumber, stimulusitem, stimulusonset, stimulusnumber, stimulusitem, stimulusonset)
+/file="practicedata.xlsx"
+</data>
+
+<datastream mousecoordinates>
+/columns=(build, computer.platform, date, time, subject, group, session, display.canvasheight, display.canvaswidth, blockcode, blocknum, values.genderSide,
+trialcode, trialnum, latency, stimulusnumber, stimulusitem, stimulusonset, stimulusnumber, stimulusitem, stimulusonset, 
+stimulusnumber, stimulusitem, stimulusonset, stimulusnumber, stimulusitem, stimulusonset, response, correct, script.elapsedtime, mouse.x, mouse.y)
+</datastream>
+
+<values>
+/genderSide=""
+/correctResponseBox=""
+/group=""
+</values>
+
+<shape start>
+/shape = rectangle
+/color = black
+/position = (50%, 90%)
+/size = (21%, 6%)
+/erase = false
+</shape>
+
+<item fixation>
+/1="fixation.jpg"
+</item>
+
+<picture fixation>
+/items=fixation
+/position = (50%, 50%)
+/size = (50%, 50%)
+/erase = false
+</picture>
+
+<values>
+/fixtime=0
+</values>
+
+
+<list fixationduration>
+/items = (500, 1000, 1500)
+</list>
+
+<trial fixation>
+/stimulusframes = [1=fixation]
+/recorddata = false
+/ontrialbegin = [
+values.fixtime=list.fixationduration.nextvalue	
+]
+/trialduration = values.fixtime
+</trial>
+
+------------------------------------------------------------------------------------
+***** PRACTICE TARGETS *****
+------------------------------------------------------------------------------------
+
+*****************These are the practice stimuli for face categorization*****************
+
+<item menPracticeFaces>
+/1="cfd-wm-241-072-n-m.jpg"
+/2="cfd-wm-243-107-n-m.jpg"
+/3="cfd-wm-245-123-n-m.jpg"
+/4="cfd-wm-250-157-n-m.jpg"
+/5="cfd-wm-252-224-n-m.jpg"
+</item>
+
+<picture menPractice>
+/items=menPracticeFaces
+/size=(40%, 40%)
+/position = (50%, 50%)
+</picture>
+
+<item womenPracticeFaces>
+/1="cfd-wf-213-031-n-f.jpg"
+/2="cfd-wf-214-122-n-f.jpg"
+/3="cfd-wf-215-145-n-f.jpg"
+/4="cfd-wf-216-079-n-f.jpg"
+/5="cfd-wf-217-089-n-f.jpg"
+</item>
+
+<picture womenPractice>
+/items=womenPracticeFaces
+/size=(40%, 40%)
+/position = (50%, 50%)
+</picture>
+
+<item androPracticeFaces>
+/1="cfd-wm-213-076-n-f.jpg"
+/2="cfd-wm-214-026-n-f.jpg"
+/3="cfd-wm-217-070-n-a.jpg"
+/4="cfd-wm-225-127-n-f.jpg"
+/5="cfd-wm-230-131-n-f.jpg"
+</item>
+
+<picture androPractice>
+/items=androPracticeFaces
+/size=(40%, 40%)
+/position = (50%, 50%)
+</picture>
+
+<item contextPracticeFaces>
+/1="equal-1.jpeg"
+/2="majoritymen-1a.jpeg"
+/3="majoritywomen-1a.jpeg"
+/4="none.jpeg"
+</item>
+
+<picture contextPractice>
+/items=contextPracticeFaces
+/size=(80%, 80%);
+/hposition = shape.start.hposition;
+/vposition = shape.start.vposition-30;
+</picture>
+
+<shape coverContextL>
+/shape = rectangle
+/color = black
+/position = (25%, 60%)
+/size = (25%, 82%)
+</shape>
+
+<shape coverContextR>
+/shape = rectangle
+/color = black
+/position = (75%, 60%)
+/size = (25%, 82%)
+</shape>
+
+
+
+------------------------------------------------------------------------------------
+***** TARGETS *****
+------------------------------------------------------------------------------------
+
+*****************These are the stimuli for standalone face categorization*****************
+<item menFaces>
+/1="cfd-wm-001-014-n-m.jpg"
+/2="cfd-wm-004-010-n-m.jpg"
+/3="cfd-wm-009-002-n-m.jpg"
+/4="cfd-wm-012-001-n-m.jpg"
+/5="cfd-wm-014-002-n-m.jpg"
+/6="cfd-wm-015-002-n-m.jpg"
+/7="cfd-wm-016-001-n-m.jpg"
+/8="cfd-wm-024-015-n-m.jpg"
+/9="cfd-wm-025-002-n-m.jpg"
+/10="cfd-wm-031-003-n-m.jpg"
+/11="cfd-wm-033-025-n-m.jpg"
+/12="cfd-wm-038-003-n-m.jpg"
+/13="cfd-wm-039-018-n-m.jpg"
+/14="cfd-wm-040-022-n-m.jpg"
+/15="cfd-wm-202-107-n-m.jpg"
+/16="cfd-wm-203-023-n-m.jpg"
+/17="cfd-wm-209-038-n-m.jpg"
+/18="cfd-wm-210-057-n-m.jpg"
+/19="cfd-wm-211-054-n-m.jpg"
+/20="cfd-wm-212-097-n-m.jpg"
+/21="cfd-wm-213-076-n-m.jpg"
+/22="cfd-wm-214-026-n-m.jpg"
+/23="cfd-wm-217-070-n-m.jpg"
+/24="cfd-wm-219-008-n-m.jpg"
+/25="cfd-wm-221-091-n-m.jpg"
+/26="cfd-wm-223-056-n-m.jpg"
+/27="cfd-wm-225-127-n-m.jpg"
+/28="cfd-wm-231-112-n-m.jpg"
+/29="cfd-wm-235-147-n-m.jpg"
+/30="cfd-wm-237-052-n-m.jpg"
+/31="cfd-wm-238-020-n-m.jpg"
+/32="cfd-wm-240-125-n-m.jpg"
+</item>
+
+<picture men>
+/items=menFaces
+/size=(40%, 40%)
+/position = (50%, 50%)
+/resetinterval = 0
+</picture>
+
+<item womenFaces>
+/1="cfd-wf-017-003-n-f.jpg"
+/2="cfd-wf-018-017-n-f.jpg"
+/3="cfd-wf-019-005-n-f.jpg"
+/4="cfd-wf-020-002-n-f.jpg"
+/5="cfd-wf-021-002-n-f.jpg"
+/6="cfd-wf-022-017-n-f.jpg"
+/7="cfd-wf-023-003-n-f.jpg"
+/8="cfd-wf-024-003-n-f.jpg"
+/9="cfd-wf-025-019-n-f.jpg"
+/10="cfd-wf-027-003-n-f.jpg"
+/11="cfd-wf-028-023-n-f.jpg"
+/12="cfd-wf-029-002-n-f.jpg"
+/13="cfd-wf-030-002-n-f.jpg"
+/14="cfd-wf-031-027-n-f.jpg"
+/15="cfd-wf-033-002-n-f.jpg"
+/16="cfd-wf-034-006-n-f.jpg"
+/17="cfd-wf-035-024-n-f.jpg"
+/18="cfd-wf-036-023-n-f.jpg"
+/19="cfd-wf-037-029-n-f.jpg"
+/20="cfd-wf-038-021-n-f.jpg"
+/21="cfd-wf-039-025-n-f.jpg"
+/22="cfd-wf-200-099-n-f.jpg"
+/23="cfd-wf-201-156-n-f.jpg"
+/24="cfd-wf-202-056-n-f.jpg"
+/25="cfd-wf-203-229-n-f.jpg"
+/26="cfd-wf-205-006-n-f.jpg"
+/27="cfd-wf-206-147-n-f.jpg"
+/28="cfd-wf-207-014-n-f.jpg"
+/29="cfd-wf-208-068-n-f.jpg"
+/30="cfd-wf-209-052-n-f.jpg"
+/31="cfd-wf-211-001-n-f.jpg"
+/32="cfd-wf-212-050-n-f.jpg"
+</item>
+
+<picture women>
+/items=womenFaces
+/size=(40%, 40%)
+/position = (50%, 50%)
+/resetinterval = 0
+</picture>
+
+<item androFaces>
+/1="cfd-wf-019-005-n-m.jpg"
+/2="cfd-wf-021-002-n-m.jpg"
+/3="cfd-wf-022-017-n-m.jpg"
+/4="cfd-wf-027-003-n-m.jpg"
+/5="cfd-wf-028-023-n-a.jpg"
+/6="cfd-wf-037-029-n-a.jpg"
+/7="cfd-wf-038-021-n-a.jpg"
+/8="cfd-wf-039-025-n-a.jpg"
+/9="cfd-wf-203-229-n-a.jpg"
+/10="cfd-wf-205-006-n-m.jpg"
+/11="cfd-wf-207-014-n-m.jpg"
+/12="cfd-wf-208-068-n-m.jpg"
+/13="cfd-wf-209-052-n-m.jpg"
+/14="cfd-wf-212-050-n-m.jpg"
+/15="cfd-wf-215-145-n-m.jpg"
+/16="cfd-wf-217-089-n-m.jpg"
+/17="cfd-wf-222-092-n-f.jpg"
+/18="cfd-wf-223-133-n-a.jpg"
+/19="cfd-wf-224-099-n-a.jpg"
+/20="cfd-wf-226-095-n-m.jpg"
+/21="cfd-wf-228-196-n-m.jpg"
+/22="cfd-wm-001-014-n-f.jpg"
+/23="cfd-wm-012-001-n-f.jpg"
+/24="cfd-wm-016-001-n-f.jpg"
+/25="cfd-wm-024-015-n-f.jpg"
+/26="cfd-wm-028-003-n-f.jpg"
+/27="cfd-wm-031-003-n-f.jpg"
+/28="cfd-wm-038-003-n-f.jpg"
+/29="cfd-wm-203-023-n-f.jpg"
+/30="cfd-wm-205-007-n-f.jpg"
+/31="cfd-wm-210-057-n-f.jpg"
+/32="cfd-wm-211-054-n-f.jpg"
+</item>
+
+<picture andro>
+/items=androFaces
+/size=(40%, 40%)
+/position = (50%, 50%)
+/resetinterval = 0
+</picture>
+
+*****************These are the stimuli for contextualized face categorization*****************
+
+<item contextFaces>
+/1="equal-2.jpeg"
+/2="equal-3.jpeg"
+/3="equal-4.jpeg"
+/4="equal-5.jpeg"
+/5="equal-6.jpeg"
+/6="equal-7.jpeg"
+/7="majoritymen-1a.jpeg"
+/8="majoritymen-1c.jpeg"
+/9="majoritymen-1d.jpeg"
+/10="majoritymen-2b.jpeg"
+/11="majoritymen-2c.jpeg"
+/12="majoritymen-2d.jpeg"
+/13="majoritywomen-1b.jpeg"
+/14="majoritywomen-1c.jpeg"
+/15="majoritywomen-1d.jpeg"
+/16="majoritywomen-2a.jpeg"
+/17="majoritywomen-2c.jpeg"
+/18="majoritywomen-2d.jpeg"
+/19="none.jpeg"
+/20="none.jpeg"
+/21="none.jpeg"
+/22="none.jpeg"
+/23="none.jpeg"
+/24="none.jpeg"
+</item>
+
+<picture context>
+/items=contextFaces
+/size=(80%, 80%)
+/hposition = shape.start.hposition;
+/vposition = shape.start.vposition-30;
+</picture>
+
+*****************Labels for face categorization*****************
+
+<item manlabel>
+/1=" MAN "
+</item>
+
+<text manLeft>
+/items=manlabel
+/valign=top
+/halign=left
+/position=(5%, 5%)
+/fontstyle = ("Arial", 8%)
+/txcolor=white
+</text>
+
+<text manRight>
+/items=manlabel
+/valign=top
+/halign=right
+/position=(95%, 5%)
+/fontstyle = ("Arial", 8%)
+/txcolor=white
+</text>
+
+<item womanlabel>
+/1="WOMAN"
+</item>
+
+<text womanLeft>
+/items=womanlabel
+/valign=top
+/halign=left
+/position=(5%, 5%)
+/fontstyle = ("Arial", 8%)
+/txcolor=white
+</text>
+
+<text womanRight>
+/items=womanlabel
+/valign=top
+/halign=right
+/position=(95%, 5%)
+/fontstyle = ("Arial", 8%)
+/txcolor=white
+</text>
+
+*****************Instructions for face categorization*****************
+
+<text instructions>
+/items=instructions
+/hjustify=center
+/vjustify = center
+/size=(90%, 60%)
+/position=(50%, 70%)
+/valign=bottom
+/select=instructions
+/fontstyle=("Arial", 3.5%)
+</text>
+
+<counter instructions>
+/resetinterval = 20
+/select=sequence(1, 2, 3, 4, 5, 6)
+</counter>
+
+<text spacebar>
+/items=("Press the SPACE BAR to continue.")
+/position=(50%, 95%)
+/valign=bottom
+/fontstyle=("Arial", 3.5%)
+</text>
+
+------------------------------------------------------------------------------------
+***** PRACTICE INDIVIDUAL TRIALS *****
+------------------------------------------------------------------------------------
+
+*****************These are the stimuli for face categorization*****************
+
+<trial menPractice>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, manRight)
+/stimulusframes=[1=menPractice]
+/response = timeout(3000)
+</trial>
+
+<trial womenPractice>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (womanLeft, womanRight)
+/stimulusframes=[1=womenPractice]
+/response = timeout(3000)
+</trial>
+
+<trial androPractice>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, womanRight, manRight, womanLeft)
+/stimulusframes=[1=androPractice]
+/response = timeout(3000)
+</trial>
+
+<block practiceMLWR>
+/bgstim=(manLeft, womanRight)
+/trials=[1,3,5,7,9=noreplacenorepeat(menPractice, womenPractice, androPractice);
+2,4,6,8,10=fixation]
+/recorddata=false
+</block>
+
+<block practiceWLMR>
+/bgstim=(womanLeft, manRight)
+/trials=[1,3,5,7,9=noreplacenorepeat(menPractice, womenPractice, androPractice);
+2,4,6,8,10=fixation]
+/recorddata=false
+</block>
+
+
+------------------------------------------------------------------------------------
+***** PRACTICE CONTEXT TRIALS *****
+------------------------------------------------------------------------------------
+
+<trial contextMenPractice>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+]
+/ stimulustimes = [0=contextPractice; 
+400=shape.coverContextL, shape.coverContextR, menPractice;]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, womanRight, manRight, womanLeft)
+/response = timeout(3400)
+</trial>
+
+<trial contextWomenPractice>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+]
+/ stimulustimes = [0=contextPractice; 
+400=shape.coverContextL, shape.coverContextR, womenPractice;]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, womanRight, manRight, womanLeft)
+/response = timeout(3400)
+</trial>
+
+<trial contextAndroPractice>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+]
+/ stimulustimes = [0=contextPractice; 
+400=shape.coverContextL, shape.coverContextR, androPractice;]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, womanRight, manRight, womanLeft)
+/response = timeout(3400)
+</trial>
+
+<block contextpracticeMLWR>
+/bgstim=(manLeft, womanRight)
+/trials=[1,3,5,7,9=noreplacenorepeat(contextMenPractice, contextWomenPractice, contextAndroPractice);
+2,4,6,8,10=fixation]
+/recorddata=false
+</block>
+
+<block contextpracticeWLMR>
+/bgstim=(womanLeft, manRight)
+/trials=[1,3,5,7,9=noreplacenorepeat(contextMenPractice, contextWomenPractice, contextAndroPractice);
+2,4,6,8,10=fixation]
+/recorddata=false
+</block>
+
+------------------------------------------------------------------------------------
+***** EXPERIMENT INDIV BLOCK *****
+------------------------------------------------------------------------------------
+
+<trial men>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+		if(values.group="1"){
+			values.correctResponseBox="left"
+		}
+		else if(values.group="2"){
+			values.correctResponseBox="right"
+		}
+]
+/stimulusframes = [1=picture.men]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, manRight)
+/response = timeout(3000)
+</trial>
+
+<trial women>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+		if(values.group="1"){
+			values.correctResponseBox="right"
+		}
+		else if(values.group="2"){
+			values.correctResponseBox="left"
+		}
+]
+/stimulusframes = [1=picture.women]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (womanLeft, womanRight)
+/response = timeout(3000)
+</trial>
+
+<trial andro>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+	values.correctResponseBox="both"
+]
+/stimulusframes = [1=picture.andro]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, womanRight, manRight, womanLeft)
+/response = timeout(3000)
+</trial>
+
+<block IndivMLWR>
+/bgstim=(manLeft, womanRight)
+/trials=[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47=noreplacenorepeat(men, women, andro);
+2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48=fixation;]
+/recorddata=true
+</block>
+
+
+<block IndivWLMR>
+/bgstim=(womanLeft, manRight)
+/trials=[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47=noreplacenorepeat(men, women, andro);
+2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48=fixation;]
+/recorddata=true
+</block>
+
+------------------------------------------------------------------------------------
+***** EXPERIMENT CONTEXT BLOCK *****
+------------------------------------------------------------------------------------
+
+<trial menContext>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+		if(values.group="1"){
+			values.correctResponseBox="left"
+		}
+		else if(values.group="2"){
+			values.correctResponseBox="right"
+		}
+]
+/stimulustimes = [
+	0=picture.context; 
+	400=shape.coverContextL, shape.coverContextR, picture.men;
+]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, manRight)
+/response = timeout(3400)
+</trial>
+
+<trial womenContext>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+		if(values.group="1"){
+			values.correctResponseBox="right"
+		}
+		else if(values.group="2"){
+			values.correctResponseBox="left"
+		}
+]
+/stimulustimes = [
+	0=picture.context; 
+	400=shape.coverContextL, shape.coverContextR, picture.women;
+]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (womanLeft, womanRight)
+/response = timeout(3400)
+</trial>
+
+<trial androContext>
+/ontrialbegin = [
+	mouse.x = shape.start.hposition;
+	mouse.y = shape.start.vposition;
+	values.correctResponseBox="both"
+]
+/stimulustimes = [
+	0=picture.context; 
+	400=shape.coverContextL, shape.coverContextR, picture.andro;
+]
+/inputdevice=mouse
+/validresponse=(manLeft, womanRight, manRight, womanLeft)
+/correctresponse = (manLeft, womanRight, manRight, womanLeft)
+/response = timeout(3400)
+</trial>
+
+<block contextMLWR>
+/bgstim=(manLeft, womanRight)
+/trials=[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79,81,83,85,87,89,91,93,95,97,99,101,103,105,107,109,111,113,115,117,119,121,123,125,127,129,131,133,135,137,139,141,143=noreplacenorepeat(menContext, womenContext, androContext);
+2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,138,140,142,144=fixation;]
+/recorddata=true
+</block>
+
+
+<block contextWLMR>
+/bgstim=(womanLeft, manRight)
+/trials=[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79,81,83,85,87,89,91,93,95,97,99,101,103,105,107,109,111,113,115,117,119,121,123,125,127,129,131,133,135,137,139,141,143=noreplacenorepeat(menContext, womenContext, androContext);
+2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,138,140,142,144=fixation;]
+/recorddata=true
+</block>
+
+***************** Calculate *****************
+
+<expressions>
+/leftTarget= if (values.genderSide=="MLWR"){
+	item.manlabel.item(1);
+}
+	else{
+		item.womanlabel.item(1);
+};
+/rightTarget= if (values.genderSide=="WLMR"){
+	item.manlabel.item(1);
+}
+	else{
+		item.womanlabel.item(1);
+};
+</expressions>
+
+***************** Instructions *****************
+
+<item instructions>
+/1="In this experiment you will complete 96 trials. 
+
+In each trial, you will see ONE target human face with the word <%expressions.leftTarget%> on the left and the word <%expressions.rightTarget%> on the right. 
+You will be asked to categorize this face by gender. The faces can be either a man or woman. 
+
+You will use your cursor to CLICK on the gender category you think the face belongs to. Start moving your mouse towards the categories as soon as the trial begins.
+
+Please use your FIRST IMPRESSIONS and rely on your gut feelings when making these categorizations."
+/2="You have THREE SECONDS maximum to finish each trial. Please be aware that if you fail to respond to more than FOUR trials, you will not receive the full compensation.
+
+Now, we will ask you to complete five practice trials."
+/3="Great job! Now you will begin the main task.  
+
+You will now start the FIRST block of 24 trials."
+/4="Great job! 
+
+In this next block, a group of faces will precede the one target face. After 400ms the group will disappear and the target face will be presented for THREE SECONDS. 
+
+Please categorize this one target face only.
+
+Now, we will ask you to complete five practice trials."
+/5="Great job! You will now start the SECOND block of 72 trials."
+</item>
+
+<trial instructions>
+/stimulustimes = [1=instructions, spacebar]
+/correctresponse=(" ")
+/errormessage=false
+/recorddata=false
+</trial>
+
+<block instructions>
+/trials = [1-2=instructions]
+/recorddata=false
+</block>
+
+<trial btwtrial>
+/stimulusframes = [1=instructions, spacebar]
+/correctresponse=(" ")
+/errormessage=false
+/recorddata=false
+</trial>
+
+<block btwblock>
+/trials=[1=btwtrial]
+/recorddata=false
+</block>
+
+***************** End text *****************
+
+<page post>
+^Great job! 
+^In the final section of this task, we will ask you to answer a few questionnaires.
+</page>
+
+<instruct>
+/nextlabel="Continue"
+/prevkey=(0)
+/inputdevice=mouse
+/windowsize = (90%, 90%)
+/screencolor=black
+/fontstyle=("Arial", 3%)
+/txcolor=white
+</instruct>
+
+<block pause>
+/trials = [1=instructions]
+/recorddata=false
+</block>
+
+<expt>
+/ onexptbegin = [
+	values.genderSide = "MLWR";
+	values.group="1";
+]
+/ subjects = (1 of 2)
+/ blocks = [1=instructions; 2=practiceMLWR; 3=pause; 4=IndivMLWR; 5=btwblock; 6=contextpracticeMLWR; 7=pause; 8=contextMLWR;]
+/ postinstructions = (post)
+/ datastreams = (datastream.mousecoordinates)
+</expt>
+
+<expt>
+/ onexptbegin = [
+	values.genderSide = "WLMR";
+	values.group="2";
+]
+/ subjects = (2 of 2)
+/ blocks = [1=instructions; 2=practiceWLMR; 3=pause; 4=IndivWLMR; 5=btwblock; 6=block.contextpracticeWLMR; 7=pause; 8=contextWLMR]
+/ postinstructions = (post)
+/ datastreams = (datastream.mousecoordinates)
+</expt>
